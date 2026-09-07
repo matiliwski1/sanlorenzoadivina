@@ -1,0 +1,208 @@
+:root {
+  --azul: #0033a0;
+  --rojo: #d61f2a;
+  --fondo: #f4f5f7;
+  --texto: #1a1a1a;
+  --blanco: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(135deg, var(--azul) 50%, var(--rojo) 50%);
+  color: white;
+  text-align: center;
+  padding: 28px 16px 22px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.pantalla {
+  width: 100%;
+  max-width: 420px;
+  background: var(--blanco);
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.oculta { display: none; }
+
+h2 { margin-top: 0; }
+
+.selector-anios {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 20px 0 8px;
+}
+
+.selector-anios label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  font-weight: 600;
+  gap: 6px;
+}
+
+select, input[type=number] {
+  font-size: 1.1rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.info-chica {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 10px 0 20px;
+}
+
+.btn-principal {
+  background: var(--rojo);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 22px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: filter 0.15s;
+}
+
+.btn-principal:active { filter: brightness(0.9); }
+
+.marcador-puntos {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--azul);
+  margin-bottom: 16px;
+}
+
+.tarjeta-partido {
+  background: var(--fondo);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.fecha {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0 0 2px;
+}
+
+.competicion {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0 0 14px;
+}
+
+.enfrentamiento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.vs {
+  color: var(--rojo);
+  font-size: 0.9rem;
+}
+
+.condicion {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.inputs-marcador {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.input-equipo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-equipo label {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.input-equipo input {
+  width: 64px;
+}
+
+.guion {
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding-bottom: 8px;
+}
+
+.feedback {
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.feedback.acierto { color: #1a8a3e; }
+.feedback.error { color: var(--rojo); }
+
+.resultado-real {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--azul);
+  margin: 8px 0 4px;
+}
+
+.puntaje-final {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #999;
+  padding: 16px;
+}
+
+footer a { color: #999; }
