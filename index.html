@@ -7,14 +7,14 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+ 
 <header>
   <h1>🔵🔴 Adiviná el Resultado</h1>
   <p class="subtitle">Estadísticas de San Lorenzo de Almagro</p>
 </header>
-
+ 
 <main>
-
+ 
   <!-- PANTALLA DE INICIO -->
   <section id="pantalla-inicio" class="pantalla">
     <h2>Elegí el período</h2>
@@ -29,51 +29,60 @@
         <select id="anio-hasta"></select>
       </label>
     </div>
+    <label class="selector-competicion">
+      Competencia
+      <select id="filtro-competicion">
+        <option value="todas">Todas</option>
+        <option value="liga">Liga Nacional</option>
+        <option value="copa">Copa Nacional</option>
+        <option value="internacional">Copas Internacionales</option>
+      </select>
+    </label>
     <p id="cantidad-partidos" class="info-chica"></p>
     <button id="btn-empezar" class="btn-principal">Empezar</button>
   </section>
-
+ 
   <!-- PANTALLA DE JUEGO -->
   <section id="pantalla-juego" class="pantalla oculta">
     <div class="marcador-puntos">
       Racha actual: <span id="puntos">0</span>
     </div>
-
+ 
     <div class="tarjeta-partido">
       <p class="fecha" id="fecha-partido"></p>
       <p class="torneo" id="competicion-partido"></p>
       <div class="enfrentamiento">
         <div class="equipo">
-          <img class="escudo" id="escudo-sl" src="" alt="San Lorenzo">
-          <span>San Lorenzo</span>
+          <img class="escudo" id="escudo-izquierda" src="" alt="">
+          <span id="nombre-izquierda"></span>
         </div>
         <div class="vs">vs</div>
         <div class="equipo">
-          <img class="escudo" id="escudo-rival" src="" alt="">
-          <span id="rival-partido"></span>
+          <img class="escudo" id="escudo-derecha" src="" alt="">
+          <span id="nombre-derecha"></span>
         </div>
       </div>
       <p class="condicion" id="condicion-partido"></p>
     </div>
-
+ 
     <form id="form-prediccion" class="form-prediccion">
       <div class="inputs-marcador">
         <div class="input-equipo">
-          <label>San Lorenzo</label>
-          <input type="number" id="goles-sl" min="0" max="20" required inputmode="numeric">
+          <label id="label-izquierda"></label>
+          <input type="number" id="goles-izquierda" min="0" max="20" required inputmode="numeric">
         </div>
         <span class="guion">-</span>
         <div class="input-equipo">
-          <label id="label-rival">Rival</label>
-          <input type="number" id="goles-rival" min="0" max="20" required inputmode="numeric">
+          <label id="label-derecha"></label>
+          <input type="number" id="goles-derecha" min="0" max="20" required inputmode="numeric">
         </div>
       </div>
       <button type="submit" class="btn-principal">Adivinar</button>
     </form>
-
+ 
     <div id="resultado-feedback" class="feedback oculta"></div>
   </section>
-
+ 
   <!-- PANTALLA GAME OVER -->
   <section id="pantalla-fin" class="pantalla oculta">
     <h2>¡Fallaste! 😔</h2>
@@ -82,13 +91,15 @@
     <p class="puntaje-final">Racha final: <span id="puntos-fin"></span> partidos acertados</p>
     <button id="btn-reintentar" class="btn-principal">Jugar de nuevo</button>
   </section>
-
+ 
 </main>
-
+ 
 <footer>
   <p>Datos de partidos en base a <a href="https://estadisticascasla.com/" target="_blank" rel="noopener">estadisticascasla.com</a></p>
 </footer>
-
+ 
 <script src="script.js"></script>
 </body>
 </html>
+
+
