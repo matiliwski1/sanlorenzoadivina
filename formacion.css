@@ -1,13 +1,13 @@
 .formacion-nombre {
   font-weight: 700;
 }
-
+ 
 .cancha-wrap {
   display: flex;
   justify-content: center;
   margin: 12px 0 20px;
 }
-
+ 
 .cancha {
   position: relative;
   width: 100%;
@@ -17,14 +17,14 @@
   border-radius: 10px;
   overflow: hidden;
 }
-
+ 
 .lineas-cancha {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
-
+ 
 .posicion {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -34,58 +34,70 @@
   background: white;
   border: 2px solid var(--azul);
   color: var(--azul);
-  font-size: 0.6rem;
-  font-weight: 800;
   cursor: pointer;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0;
+  gap: 1px;
 }
-
+ 
+.pos-label {
+  font-size: 0.55rem;
+  font-weight: 800;
+  line-height: 1;
+}
+ 
+.pos-guiones {
+  font-size: 0.4rem;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+ 
 .posicion.activa {
   outline: 3px solid #ffd54f;
 }
-
+ 
 .posicion.resuelta {
   background: #1a8a3e;
   border-color: #1a8a3e;
   color: white;
 }
-
+ 
 .posicion.fallada {
   background: var(--rojo);
   border-color: var(--rojo);
   color: white;
 }
-
+ 
 .panel-adivinanza {
   background: var(--fondo);
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 16px;
 }
-
+ 
 .panel-adivinanza h3 {
   margin: 0 0 10px;
   font-size: 1rem;
   text-align: center;
 }
-
+ 
 .intentos-previos {
   display: flex;
   flex-direction: column;
   gap: 6px;
   margin-bottom: 12px;
 }
-
+ 
 .fila-intento {
   display: flex;
   gap: 4px;
   justify-content: center;
   flex-wrap: wrap;
 }
-
+ 
 .letra-box {
   width: 30px;
   height: 30px;
@@ -98,16 +110,16 @@
   border-radius: 4px;
   text-transform: uppercase;
 }
-
+ 
 .letra-box.correcta { background: #1a8a3e; }
 .letra-box.presente { background: #c9a227; }
 .letra-box.ausente { background: #8a8a8a; }
-
+ 
 .form-adivinanza {
   display: flex;
   gap: 8px;
 }
-
+ 
 .form-adivinanza input {
   flex: 1;
   font-size: 1rem;
@@ -115,7 +127,7 @@
   border-radius: 8px;
   border: 1px solid #ccc;
 }
-
+ 
 .form-adivinanza .btn-principal {
   width: auto;
   margin-top: 0;
