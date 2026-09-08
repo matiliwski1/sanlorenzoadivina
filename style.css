@@ -122,19 +122,38 @@ select, input[type=number] {
   margin: 0 0 2px;
 }
 
-.competicion {
-  font-size: 0.8rem;
-  color: #888;
-  margin: 0 0 14px;
+.torneo {
+  font-size: 0.85rem;
+  color: var(--azul);
+  font-weight: 700;
+  margin: 0 0 16px;
 }
 
 .enfrentamiento {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 18px;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1rem;
+}
+
+.enfrentamiento .equipo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  max-width: 110px;
+}
+
+.escudo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.escudo:not([src]), .escudo[src=""] {
+  visibility: hidden;
 }
 
 .vs {
