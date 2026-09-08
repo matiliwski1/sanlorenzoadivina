@@ -1,0 +1,22 @@
+[
+  {
+    "date": "20/04/2026",
+    "rival": "Velez",
+    "competition": "Liga Profesional 2026 - Apertura",
+    "condition": "Local",
+    "formacion": "3-4-1-2",
+    "jugadores": [
+      { "pos": "GK",   "apellido": "Gill" },
+      { "pos": "DFC1", "apellido": "Romaña" },
+      { "pos": "DFC2", "apellido": "Montenegro" },
+      { "pos": "DFC3", "apellido": "Herrera" },
+      { "pos": "LD",   "apellido": "Tripichio" },
+      { "pos": "MC1",  "apellido": "Gulli" },
+      { "pos": "MC2",  "apellido": "Insaurralde" },
+      { "pos": "LI",   "apellido": "De Ritis" },
+      { "pos": "MCO",  "apellido": "Reali" },
+      { "pos": "DC1",  "apellido": "Cuello" },
+      { "pos": "DC2",  "apellido": "Auzmendi" }
+    ]
+  }
+]
