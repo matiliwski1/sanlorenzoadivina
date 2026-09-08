@@ -64,6 +64,43 @@ h2 { margin-top: 0; }
   margin: 20px 0 8px;
 }
  
+.pool-jugadores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 16px 0;
+}
+ 
+.chip-jugador {
+  background: var(--fondo);
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+ 
+.chip-jugador.seleccionado {
+  background: var(--azul);
+  color: white;
+  border-color: var(--azul);
+}
+ 
+.lista-formacion {
+  text-align: left;
+  max-width: 280px;
+  margin: 0 auto 16px;
+  padding-left: 20px;
+  font-size: 0.9rem;
+}
+ 
+.btn-principal:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+ 
 .selector-anios label,
 .selector-competicion {
   display: flex;
