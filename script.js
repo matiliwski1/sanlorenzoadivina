@@ -1,7 +1,5 @@
-// Escudos verificados desde football-logos.cc (catálogo de escudos con URLs estables).
-// Si un rival no está en la lista, o la imagen no carga, el escudo simplemente no se muestra.
 const ESCUDO_SAN_LORENZO = 'https://assets.football-logos.cc/logos/argentina/1500x1500/san-lorenzo-de-almagro.a0e4e931.png';
-
+ 
 const ESCUDOS_RIVALES = {
   'Boca Juniors': 'https://assets.football-logos.cc/logos/argentina/1500x1500/boca-juniors.009a4e59.png',
   'River Plate': 'https://assets.football-logos.cc/logos/argentina/1500x1500/river-plate.1ac01d84.png',
@@ -21,14 +19,26 @@ const ESCUDOS_RIVALES = {
   'Talleres': 'https://assets.football-logos.cc/logos/argentina/700x700/talleres.3c2c2930.png',
   'Belgrano': 'https://assets.football-logos.cc/logos/argentina/700x700/belgrano.1b7471ec.png',
   'Tigre': 'https://assets.football-logos.cc/logos/argentina/1500x1500/tigre.f0a44434.png',
+  // Argentinos adicionales
+  'Godoy Cruz': 'https://assets.football-logos.cc/logos/argentina/700x700/godoy-cruz.35e3fce3.png',
+  'Atletico Tucuman': 'https://assets.football-logos.cc/logos/argentina/700x700/atletico-tucuman.d2489b8d.png',
+  'Defensa y Justicia': 'https://assets.football-logos.cc/logos/argentina/1500x1500/defensa-y-justicia.b266054d.png',
+  'Arsenal': 'https://assets.football-logos.cc/logos/argentina/700x700/arsenal-de-sarandi.5789fffc.png',
+  'Platense': 'https://assets.football-logos.cc/logos/argentina/700x700/platense.9f8df115.png',
+  // Internacionales — Brasil
+  'Palmeiras (Brasil)': 'https://assets.football-logos.cc/logos/brazil/700x700/palmeiras.2e8b6843.png',
+  'Atletico Mineiro (Brasil)': 'https://assets.football-logos.cc/logos/brazil/1500x1500/atletico-mineiro.481ef277.png',
+  'Santos (Brasil)': 'https://assets.football-logos.cc/logos/brazil/700x700/santos.bea15519.png',
+  'San Pablo (Brasil)': 'https://assets.football-logos.cc/logos/brazil/700x700/sao-paulo.87943454.png',
+  'Fortaleza (Brasil)': 'https://assets.football-logos.cc/logos/brazil/1500x1500/fortaleza.e603dd38.png',
 };
-
+ 
 function buscarEscudoRival(nombreRival) {
   if (ESCUDOS_RIVALES[nombreRival]) return ESCUDOS_RIVALES[nombreRival];
   const clave = Object.keys(ESCUDOS_RIVALES).find(k => nombreRival.includes(k));
   return clave ? ESCUDOS_RIVALES[clave] : null;
 }
-
+ 
 // Clasifica el texto de competición en una de 4 categorías para el filtro.
 function clasificarCompeticion(comp) {
   const c = comp.toLowerCase();
@@ -36,22 +46,22 @@ function clasificarCompeticion(comp) {
   if (/(copa argentina|copa maradona|copa diego maradona)/.test(c)) return 'copa';
   return 'liga';
 }
-
+ 
 let todosLosPartidos = [];
 let mazoActual = [];
 let indiceActual = 0;
 let puntos = 0;
-
+ 
 const pantallaInicio = document.getElementById('pantalla-inicio');
 const pantallaJuego = document.getElementById('pantalla-juego');
 const pantallaFin = document.getElementById('pantalla-fin');
-
+ 
 const selectDesde = document.getElementById('anio-desde');
 const selectHasta = document.getElementById('anio-hasta');
 const filtroCompeticion = document.getElementById('filtro-competicion');
 const cantidadPartidosEl = document.getElementById('cantidad-partidos');
 const btnEmpezar = document.getElementById('btn-empezar');
-
+ 
 const puntosEl = document.getElementById('puntos');
 const fechaEl = document.getElementById('fecha-partido');
 const competicionEl = document.getElementById('competicion-partido');
@@ -66,16 +76,16 @@ const formPrediccion = document.getElementById('form-prediccion');
 const golesIzqInput = document.getElementById('goles-izquierda');
 const golesDerInput = document.getElementById('goles-derecha');
 const feedbackEl = document.getElementById('resultado-feedback');
-
+ 
 const resultadoRealFinEl = document.getElementById('resultado-real-fin');
 const puntosFinEl = document.getElementById('puntos-fin');
 const btnReintentar = document.getElementById('btn-reintentar');
-
+ 
 function mostrarPantalla(pantalla) {
   [pantallaInicio, pantallaJuego, pantallaFin].forEach(p => p.classList.add('oculta'));
   pantalla.classList.remove('oculta');
 }
-
+ 
 function mezclar(array) {
   const copia = [...array];
   for (let i = copia.length - 1; i > 0; i--) {
@@ -84,13 +94,13 @@ function mezclar(array) {
   }
   return copia;
 }
-
+ 
 function traducirCondicion(cond) {
   if (cond === 'Local') return 'San Lorenzo de local';
   if (cond === 'Visitante') return 'San Lorenzo de visitante';
   return 'Cancha neutral';
 }
-
+ 
 function poblarSelectoresAnio() {
   const anios = [...new Set(todosLosPartidos.map(p => p.year))].sort((a, b) => a - b);
   anios.forEach(anio => {
@@ -98,7 +108,7 @@ function poblarSelectoresAnio() {
     opt1.value = anio;
     opt1.textContent = anio;
     selectDesde.appendChild(opt1);
-
+ 
     const opt2 = document.createElement('option');
     opt2.value = anio;
     opt2.textContent = anio;
@@ -108,7 +118,7 @@ function poblarSelectoresAnio() {
   selectHasta.value = anios[anios.length - 1];
   actualizarCantidad();
 }
-
+ 
 function actualizarCantidad() {
   const desde = parseInt(selectDesde.value);
   const hasta = parseInt(selectHasta.value);
@@ -120,17 +130,17 @@ function actualizarCantidad() {
   ).length;
   cantidadPartidosEl.textContent = `${cantidad} partidos disponibles en ese período`;
 }
-
+ 
 selectDesde.addEventListener('change', actualizarCantidad);
 selectHasta.addEventListener('change', actualizarCantidad);
 filtroCompeticion.addEventListener('change', actualizarCantidad);
-
+ 
 btnEmpezar.addEventListener('click', () => {
   const desde = parseInt(selectDesde.value);
   const hasta = parseInt(selectHasta.value);
   const [min, max] = desde <= hasta ? [desde, hasta] : [hasta, desde];
   const comp = filtroCompeticion.value;
-
+ 
   const filtrados = todosLosPartidos.filter(p =>
     p.year >= min && p.year <= max &&
     (comp === 'todas' || clasificarCompeticion(p.competition) === comp)
@@ -139,7 +149,7 @@ btnEmpezar.addEventListener('click', () => {
     alert('No hay partidos con esos filtros. Elegí otro rango o competencia.');
     return;
   }
-
+ 
   mazoActual = mezclar(filtrados);
   indiceActual = 0;
   puntos = 0;
@@ -147,31 +157,31 @@ btnEmpezar.addEventListener('click', () => {
   mostrarPantalla(pantallaJuego);
   mostrarSiguientePartido();
 });
-
+ 
 function mostrarSiguientePartido() {
   if (indiceActual >= mazoActual.length) {
     // Se acabaron los partidos del período elegido: se vuelve a mezclar y se sigue
     mazoActual = mezclar(mazoActual);
     indiceActual = 0;
   }
-
+ 
   const partido = mazoActual[indiceActual];
   fechaEl.textContent = partido.date;
   competicionEl.textContent = `Torneo: ${partido.competition}`;
   condicionEl.textContent = traducirCondicion(partido.condition);
-
+ 
   // San Lorenzo va del lado que le corresponda según si jugó de local o visitante.
   const slLocal = partido.condition !== 'Visitante';
   const nombreIzq = slLocal ? 'San Lorenzo' : partido.rival;
   const nombreDer = slLocal ? partido.rival : 'San Lorenzo';
   const escudoIzq = slLocal ? ESCUDO_SAN_LORENZO : buscarEscudoRival(partido.rival);
   const escudoDer = slLocal ? buscarEscudoRival(partido.rival) : ESCUDO_SAN_LORENZO;
-
+ 
   nombreIzqEl.textContent = nombreIzq;
   nombreDerEl.textContent = nombreDer;
   labelIzqEl.textContent = nombreIzq;
   labelDerEl.textContent = nombreDer;
-
+ 
   [ [escudoIzqEl, escudoIzq], [escudoDerEl, escudoDer] ].forEach(([el, url]) => {
     if (url) {
       el.onerror = () => { el.style.display = 'none'; };
@@ -182,26 +192,26 @@ function mostrarSiguientePartido() {
       el.style.display = 'none';
     }
   });
-
+ 
   golesIzqInput.value = '';
   golesDerInput.value = '';
   feedbackEl.classList.add('oculta');
   golesIzqInput.focus();
 }
-
+ 
 formPrediccion.addEventListener('submit', (e) => {
   e.preventDefault();
   const partido = mazoActual[indiceActual];
   const slLocal = partido.condition !== 'Visitante';
   const golesIzq = parseInt(golesIzqInput.value);
   const golesDer = parseInt(golesDerInput.value);
-
+ 
   // Traducimos "izquierda/derecha" a "San Lorenzo/rival" según corresponda.
   const golesSl = slLocal ? golesIzq : golesDer;
   const golesRival = slLocal ? golesDer : golesIzq;
-
+ 
   const acerto = golesSl === partido.goals_for && golesRival === partido.goals_against;
-
+ 
   if (acerto) {
     puntos++;
     puntosEl.textContent = puntos;
@@ -217,11 +227,11 @@ formPrediccion.addEventListener('submit', (e) => {
     mostrarPantalla(pantallaFin);
   }
 });
-
+ 
 btnReintentar.addEventListener('click', () => {
   mostrarPantalla(pantallaInicio);
 });
-
+ 
 fetch('partidos.json')
   .then(res => res.json())
   .then(data => {
