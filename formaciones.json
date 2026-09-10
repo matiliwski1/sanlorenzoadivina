@@ -6,17 +6,315 @@
     "condition": "Local",
     "formacion": "3-4-1-2",
     "jugadores": [
-      { "pos": "GK",   "apellido": "Gill" },
-      { "pos": "DFC1", "apellido": "Romaña" },
-      { "pos": "DFC2", "apellido": "Montenegro" },
-      { "pos": "DFC3", "apellido": "Herrera" },
-      { "pos": "LD",   "apellido": "Tripichio" },
-      { "pos": "MC1",  "apellido": "Gulli" },
-      { "pos": "MC2",  "apellido": "Insaurralde" },
-      { "pos": "LI",   "apellido": "De Ritis" },
-      { "pos": "MCO",  "apellido": "Reali" },
-      { "pos": "DC1",  "apellido": "Cuello" },
-      { "pos": "DC2",  "apellido": "Auzmendi" }
+      {
+        "pos": "GK",
+        "apellido": "Gill"
+      },
+      {
+        "pos": "DFC1",
+        "apellido": "Romaña"
+      },
+      {
+        "pos": "DFC2",
+        "apellido": "Montenegro"
+      },
+      {
+        "pos": "DFC3",
+        "apellido": "Herrera"
+      },
+      {
+        "pos": "LD",
+        "apellido": "Tripichio"
+      },
+      {
+        "pos": "MC1",
+        "apellido": "Gulli"
+      },
+      {
+        "pos": "MC2",
+        "apellido": "Insaurralde"
+      },
+      {
+        "pos": "LI",
+        "apellido": "De Ritis"
+      },
+      {
+        "pos": "MCO",
+        "apellido": "Reali"
+      },
+      {
+        "pos": "DC1",
+        "apellido": "Cuello"
+      },
+      {
+        "pos": "DC2",
+        "apellido": "Auzmendi"
+      }
+    ]
+  },
+  {
+    "date": "02/02/2025",
+    "rival": "River Plate",
+    "competition": "Liga Profesional 2025",
+    "condition": "Local",
+    "formacion": "4-5-1",
+    "jugadores": [
+      {
+        "pos": "GK",
+        "apellido": "Gill"
+      },
+      {
+        "pos": "LD",
+        "apellido": "D.Herrera"
+      },
+      {
+        "pos": "DFC1",
+        "apellido": "Romaña"
+      },
+      {
+        "pos": "DFC2",
+        "apellido": "E.Herrera"
+      },
+      {
+        "pos": "LI",
+        "apellido": "Baez"
+      },
+      {
+        "pos": "MD",
+        "apellido": "Cerutti"
+      },
+      {
+        "pos": "MC1",
+        "apellido": "Irala"
+      },
+      {
+        "pos": "MC2",
+        "apellido": "Remedi"
+      },
+      {
+        "pos": "MC3",
+        "apellido": "Tripichio"
+      },
+      {
+        "pos": "MI",
+        "apellido": "Reali"
+      },
+      {
+        "pos": "DC",
+        "apellido": "Cuello"
+      }
+    ]
+  },
+  {
+    "date": "20/10/2024",
+    "rival": "Barracas Central",
+    "competition": "Liga Profesional 2024",
+    "condition": "Local",
+    "formacion": "4-2-3-1",
+    "jugadores": [
+      {
+        "pos": "GK",
+        "apellido": "Gomez"
+      },
+      {
+        "pos": "LD",
+        "apellido": "Lopez"
+      },
+      {
+        "pos": "DFC1",
+        "apellido": "Campi"
+      },
+      {
+        "pos": "DFC2",
+        "apellido": "Romaña"
+      },
+      {
+        "pos": "LI",
+        "apellido": "Baez"
+      },
+      {
+        "pos": "MCD1",
+        "apellido": "Remedi"
+      },
+      {
+        "pos": "MCD2",
+        "apellido": "Irala"
+      },
+      {
+        "pos": "ED",
+        "apellido": "Cerutti"
+      },
+      {
+        "pos": "MCO",
+        "apellido": "Muniain"
+      },
+      {
+        "pos": "EI",
+        "apellido": "Bustos"
+      },
+      {
+        "pos": "DC",
+        "apellido": "Cuello"
+      }
+    ]
+  },
+  {
+    "date": "30/08/2023",
+    "rival": "Belgrano",
+    "competition": "Copa Argentina 2023",
+    "condition": "Neutral",
+    "formacion": "3-4-3",
+    "jugadores": [
+      {
+        "pos": "GK",
+        "apellido": "Batalla"
+      },
+      {
+        "pos": "DFC1",
+        "apellido": "Perez"
+      },
+      {
+        "pos": "DFC2",
+        "apellido": "Campi"
+      },
+      {
+        "pos": "DFC3",
+        "apellido": "Hernandez"
+      },
+      {
+        "pos": "LD",
+        "apellido": "Giay"
+      },
+      {
+        "pos": "MC1",
+        "apellido": "Elias"
+      },
+      {
+        "pos": "MC2",
+        "apellido": "Maroni"
+      },
+      {
+        "pos": "LI",
+        "apellido": "Braida"
+      },
+      {
+        "pos": "ED",
+        "apellido": "Barrios"
+      },
+      {
+        "pos": "DC",
+        "apellido": "Bareiro"
+      },
+      {
+        "pos": "EI",
+        "apellido": "Girotti"
+      }
+    ]
+  },
+  {
+    "date": "27/07/2021",
+    "rival": "Boca Juniors",
+    "competition": "Liga Profesional Argentina 2021",
+    "condition": "Visitante",
+    "formacion": "4-2-3-1",
+    "jugadores": [
+      {
+        "pos": "GK",
+        "apellido": "Torrico"
+      },
+      {
+        "pos": "LD",
+        "apellido": "Peruzzi"
+      },
+      {
+        "pos": "DFC1",
+        "apellido": "Flores"
+      },
+      {
+        "pos": "DFC2",
+        "apellido": "Gattoni"
+      },
+      {
+        "pos": "LI",
+        "apellido": "Rojas"
+      },
+      {
+        "pos": "MCD1",
+        "apellido": "Gordillo"
+      },
+      {
+        "pos": "MCD2",
+        "apellido": "Ortigoza"
+      },
+      {
+        "pos": "ED",
+        "apellido": "Palacios"
+      },
+      {
+        "pos": "MCO",
+        "apellido": "A.Romero"
+      },
+      {
+        "pos": "EI",
+        "apellido": "O.Romero"
+      },
+      {
+        "pos": "DC",
+        "apellido": "N.Fernandez"
+      }
+    ]
+  },
+  {
+    "date": "13/04/2021",
+    "rival": "Santos (Brasil)",
+    "competition": "Libertadores 2021",
+    "condition": "Visitante",
+    "formacion": "4-2-3-1",
+    "jugadores": [
+      {
+        "pos": "GK",
+        "apellido": "Devecchi"
+      },
+      {
+        "pos": "LD",
+        "apellido": "Peruzzi"
+      },
+      {
+        "pos": "DFC1",
+        "apellido": "Gattoni"
+      },
+      {
+        "pos": "DFC2",
+        "apellido": "Donatti"
+      },
+      {
+        "pos": "LI",
+        "apellido": "Rojas"
+      },
+      {
+        "pos": "MCD1",
+        "apellido": "Rodriguez"
+      },
+      {
+        "pos": "MCD2",
+        "apellido": "Ramirez"
+      },
+      {
+        "pos": "ED",
+        "apellido": "N.Fernandez"
+      },
+      {
+        "pos": "MCO",
+        "apellido": "O.Romero"
+      },
+      {
+        "pos": "EI",
+        "apellido": "A.Romero"
+      },
+      {
+        "pos": "DC",
+        "apellido": "Di Santo"
+      }
     ]
   }
 ]
