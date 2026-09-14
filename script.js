@@ -42,8 +42,8 @@ function buscarEscudoRival(nombreRival) {
 // Clasifica el texto de competición en una de 4 categorías para el filtro.
 function clasificarCompeticion(comp) {
   const c = comp.toLowerCase();
-  if (/(sudamericana|libertadores|recopa|conmebol|mercosur|interamericana)/.test(c)) return 'internacional';
-  if (/(copa argentina|copa maradona|copa diego maradona)/.test(c)) return 'copa';
+  if (/(sudamericana|libertadores|recopa|conmebol|mercosur|interamericana|mundial de clubes)/.test(c)) return 'internacional';
+  if (/(copa argentina|copa maradona|copa diego|copa superliga|copa de la liga|copa liga)/.test(c)) return 'copa';
   return 'liga';
 }
  
@@ -51,10 +51,12 @@ let todosLosPartidos = [];
 let mazoActual = [];
 let indiceActual = 0;
 let puntos = 0;
+let clubActual = null;
  
+const pantallaClub   = document.getElementById('pantalla-club');
 const pantallaInicio = document.getElementById('pantalla-inicio');
-const pantallaJuego = document.getElementById('pantalla-juego');
-const pantallaFin = document.getElementById('pantalla-fin');
+const pantallaJuego  = document.getElementById('pantalla-juego');
+const pantallaFin    = document.getElementById('pantalla-fin');
  
 const selectDesde = document.getElementById('anio-desde');
 const selectHasta = document.getElementById('anio-hasta');
@@ -82,7 +84,7 @@ const puntosFinEl = document.getElementById('puntos-fin');
 const btnReintentar = document.getElementById('btn-reintentar');
  
 function mostrarPantalla(pantalla) {
-  [pantallaInicio, pantallaJuego, pantallaFin].forEach(p => p.classList.add('oculta'));
+  [pantallaClub, pantallaInicio, pantallaJuego, pantallaFin].forEach(p => p.classList.add('oculta'));
   pantalla.classList.remove('oculta');
 }
  
@@ -172,10 +174,11 @@ function mostrarSiguientePartido() {
  
   // San Lorenzo va del lado que le corresponda según si jugó de local o visitante.
   const slLocal = partido.condition !== 'Visitante';
-  const nombreIzq = slLocal ? 'San Lorenzo' : partido.rival;
-  const nombreDer = slLocal ? partido.rival : 'San Lorenzo';
-  const escudoIzq = slLocal ? ESCUDO_SAN_LORENZO : buscarEscudoRival(partido.rival);
-  const escudoDer = slLocal ? buscarEscudoRival(partido.rival) : ESCUDO_SAN_LORENZO;
+  const nombreClub = clubActual?.nombre || 'San Lorenzo';
+  const nombreIzq = slLocal ? nombreClub : partido.rival;
+  const nombreDer = slLocal ? partido.rival : nombreClub;
+  const escudoIzq = slLocal ? (clubActual?.escudo || ESCUDO_SAN_LORENZO) : buscarEscudoRival(partido.rival);
+  const escudoDer = slLocal ? buscarEscudoRival(partido.rival) : (clubActual?.escudo || ESCUDO_SAN_LORENZO);
  
   nombreIzqEl.textContent = nombreIzq;
   nombreDerEl.textContent = nombreDer;
@@ -232,13 +235,48 @@ btnReintentar.addEventListener('click', () => {
   mostrarPantalla(pantallaInicio);
 });
  
-fetch('partidos.json')
-  .then(res => res.json())
-  .then(data => {
-    todosLosPartidos = data;
-    poblarSelectoresAnio();
-  })
-  .catch(err => {
-    console.error('Error cargando partidos.json', err);
-    cantidadPartidosEl.textContent = 'Error cargando los datos de partidos.';
+// Carga iniciada desde el selector de club
+ 
+// ── Selector de club ──────────────────────────────────────────────────────────
+ 
+const CLUBES = {
+  'san-lorenzo': {
+    nombre: 'San Lorenzo',
+    escudo: ESCUDO_SAN_LORENZO,
+    archivo: 'partidos.json',
+  },
+  'boca': {
+    nombre: 'Boca Juniors',
+    escudo: ESCUDOS_RIVALES['Boca Juniors'],
+    archivo: 'boca_partidos.json',
+  },
+  'river': {
+    nombre: 'River Plate',
+    escudo: ESCUDOS_RIVALES['River Plate'],
+    archivo: 'river_partidos.json',
+  },
+};
+ 
+document.querySelectorAll('.btn-club').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const key = btn.dataset.club;
+    clubActual = CLUBES[key];
+    fetch(clubActual.archivo)
+      .then(res => res.json())
+      .then(data => {
+        todosLosPartidos = data;
+        poblarSelectoresAnio();
+        mostrarPantalla(pantallaInicio);
+      })
+      .catch(err => console.error('Error cargando', clubActual.archivo, err));
   });
+});
+ 
+document.getElementById('btn-volver-club').addEventListener('click', () => {
+  mostrarPantalla(pantallaClub);
+});
+ 
+document.getElementById('btn-cambiar-club').addEventListener('click', () => {
+  mostrarPantalla(pantallaClub);
+});
+ 
