@@ -3,20 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adiviná el Resultado - San Lorenzo</title>
+<title>Adiviná el Resultado</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+ 
 <header>
-  <h1>🔵🔴 Adiviná el Resultado</h1>
-  <p class="subtitle">Estadísticas de San Lorenzo de Almagro</p>
+  <h1>⚽ Adiviná el Resultado</h1>
+  <p class="subtitle">El juego de los resultados del fútbol argentino</p>
 </header>
-
+ 
 <main>
-
+ 
+  <!-- PANTALLA ELEGIR CLUB -->
+  <section id="pantalla-club" class="pantalla">
+    <h2>¿De qué club querés jugar?</h2>
+    <div class="selector-clubes">
+      <button class="btn-club" data-club="san-lorenzo" data-archivo="partidos.json">
+        <img src="https://assets.football-logos.cc/logos/argentina/1500x1500/san-lorenzo-de-almagro.a0e4e931.png" alt="San Lorenzo">
+        <span>San Lorenzo</span>
+      </button>
+      <button class="btn-club" data-club="boca" data-archivo="boca_partidos.json">
+        <img src="https://assets.football-logos.cc/logos/argentina/1500x1500/boca-juniors.009a4e59.png" alt="Boca Juniors">
+        <span>Boca Juniors</span>
+      </button>
+      <button class="btn-club" data-club="river" data-archivo="river_partidos.json">
+        <img src="https://assets.football-logos.cc/logos/argentina/1500x1500/river-plate.1ac01d84.png" alt="River Plate">
+        <span>River Plate</span>
+      </button>
+    </div>
+  </section>
+ 
   <!-- PANTALLA DE INICIO -->
-  <section id="pantalla-inicio" class="pantalla">
+  <section id="pantalla-inicio" class="pantalla oculta">
+    <button id="btn-volver-club" class="btn-secundario">← Cambiar club</button>
     <h2>Elegí el período</h2>
     <p>Los partidos van a salir en orden al azar dentro del rango que elijas.</p>
     <div class="selector-anios">
@@ -41,13 +61,13 @@
     <p id="cantidad-partidos" class="info-chica"></p>
     <button id="btn-empezar" class="btn-principal">Empezar</button>
   </section>
-
+ 
   <!-- PANTALLA DE JUEGO -->
   <section id="pantalla-juego" class="pantalla oculta">
     <div class="marcador-puntos">
       Racha actual: <span id="puntos">0</span>
     </div>
-
+ 
     <div class="tarjeta-partido">
       <p class="fecha" id="fecha-partido"></p>
       <p class="torneo" id="competicion-partido"></p>
@@ -64,7 +84,7 @@
       </div>
       <p class="condicion" id="condicion-partido"></p>
     </div>
-
+ 
     <form id="form-prediccion" class="form-prediccion">
       <div class="inputs-marcador">
         <div class="input-equipo">
@@ -79,10 +99,10 @@
       </div>
       <button type="submit" class="btn-principal">Adivinar</button>
     </form>
-
+ 
     <div id="resultado-feedback" class="feedback oculta"></div>
   </section>
-
+ 
   <!-- PANTALLA GAME OVER -->
   <section id="pantalla-fin" class="pantalla oculta">
     <h2>¡Fallaste! 😔</h2>
@@ -90,15 +110,17 @@
     <p class="resultado-real" id="resultado-real-fin"></p>
     <p class="puntaje-final">Racha final: <span id="puntos-fin"></span> partidos acertados</p>
     <button id="btn-reintentar" class="btn-principal">Jugar de nuevo</button>
+    <button id="btn-cambiar-club" class="btn-secundario">Cambiar club</button>
   </section>
-
+ 
 </main>
-
+ 
 <footer>
-  <p>Datos de partidos en base a <a href="https://estadisticascasla.com/" target="_blank" rel="noopener">estadisticascasla.com</a></p>
-  <p><a href="formacion.html">Probá el nuevo juego: Completá la Formación</a></p>
+  <p>San Lorenzo: <a href="https://estadisticascasla.com/" target="_blank" rel="noopener">estadisticascasla.com</a> · Boca y River: <a href="https://el-ega.github.io/data/" target="_blank" rel="noopener">el-ega data</a></p>
+  <p><a href="formacion.html">Probá también: Completá la Formación</a></p>
 </footer>
-
+ 
 <script src="script.js"></script>
 </body>
 </html>
+ 
